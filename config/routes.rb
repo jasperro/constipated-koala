@@ -158,9 +158,9 @@ Rails.application.routes.draw do
         end
 
         scope 'merch' do
-          get  'order'            to: 'merch#index'
-          get  'order/:order_id'  to: 'merch#index'
-          post 'order'            to: 'merch#create'
+          get  'order' ,           to: 'merch#index'
+          get  'order/:order_id',  to: 'merch#index'
+          post 'order',            to: 'merch#create'
         end
       end
     end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_05_212139) do
+ActiveRecord::Schema.define(version: 2021_01_22_132536) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC", force: :cascade do |t|
     t.string "name", null: false
@@ -201,6 +201,20 @@ ActiveRecord::Schema.define(version: 2020_05_05_212139) do
     t.datetime "updated_at"
     t.index ["email"], name: "index_members_on_email", unique: true
     t.index ["student_id"], name: "index_members_on_student_id", unique: true
+  end
+
+  create_table "merchandise", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC", force: :cascade do |t|
+    t.string "order_id", null: false
+    t.integer "quantity", default: 1, null: false
+    t.string "item_entry_id", null: false
+    t.string "item_size", null: false
+    t.string "item_color", null: false
+    t.string "status", null: false
+    t.bigint "member_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["member_id", "order_id", "item_entry_id"], name: "index_merchandise_on_member_id_and_order_id_and_item_entry_id", unique: true
+    t.index ["member_id"], name: "index_merchandise_on_member_id"
   end
 
   create_table "oauth_access_grants", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC", force: :cascade do |t|
