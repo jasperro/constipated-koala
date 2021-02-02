@@ -269,6 +269,7 @@ ActiveRecord::Schema.define(version: 2021_06_02_141708) do
   end
 
   create_table "posts", id: :integer, force: :cascade do |t|
+    t.string "title"
     t.text "content"
     t.integer "status", default: 0, null: false
     t.string "tags"
