@@ -278,7 +278,7 @@ ActiveRecord::Schema.define(version: 2021_06_02_141708) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.datetime "published_at"
-    t.index ["author_type", "author_id"], name: "index_posts_on_author_type_and_author_id", length: { author_type: 191 }
+    t.index ["author_type", "author_id"], name: "index_posts_on_author_type_and_author_id"
   end
 
   create_table "settings", id: :integer, force: :cascade do |t|
