@@ -10,6 +10,8 @@ class Admin::ActivitiesController < ApplicationController
   end
 
   def show
+    @is_summarized = params['summary_only'] || params['summary_csv']
+    @is_summarized_as_csv = params['summary_csv']
     @activity = Activity.find params[:id]
     @recipients = @activity.payment_mail_recipients
     @attendees  = @activity.ordered_attendees
@@ -83,6 +85,8 @@ class Admin::ActivitiesController < ApplicationController
                                      :is_alcoholic,
                                      :is_enrollable,
                                      :is_viewable,
+                                     :is_payable,
+                                     :VAT,
                                      :show_on_website,
                                      :is_masters,
                                      :is_freshmans,

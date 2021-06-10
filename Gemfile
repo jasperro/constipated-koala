@@ -13,6 +13,10 @@ gem 'rabl'
 gem 'coffee-rails'
 gem 'font_awesome5_rails'
 gem 'sassc-rails'
+gem 'webpacker'
+
+# mimemagic
+gem 'mimemagic', '0.3.9'
 
 # authentication gems
 gem 'devise'
@@ -38,8 +42,8 @@ gem 'rails-settings-cached', '~> 0.7'
 # phone number validation
 gem 'telephone_number'
 
+gem 'csv'
 gem 'i18n-js'
-
 gem 'sidekiq'
 
 group :production, :staging do
@@ -71,3 +75,6 @@ group :development, :test do
   # i18n checks
   gem 'i18n-tasks', '~> 0.9.31'
 end
+
+# Postgres dependency
+gem 'pg'

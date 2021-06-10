@@ -6,16 +6,23 @@ jobs:
     runs-on: ubuntu-latest
 
     services:
-      mysql:
-        image: mysql:5.7
+      # mysql:
+      #   image: mysql:5.7
+      #   env:
+      #     MYSQL_ROOT_PASSWORD: password
+      #   ports:
+      #     - 25838:3306
+      postgres:
+        image: postgres
         env:
-          MYSQL_ROOT_PASSWORD: password
+          POSTGRES_PASSWORD: password
+          POSTGRES_USER: koala
         ports:
-          - 25838:3306
+          - 25838:5432
 
     env:
       DATABASE_HOST: "127.0.0.1"
-      DATABASE_USER: root
+      DATABASE_USER: koala
       DATABASE_PASSWORD: password
       DATABASE_PORT: 25838
 
@@ -31,22 +38,11 @@ jobs:
         name: svsticky-constipated-koala
         signingKey: ${{ secrets.CACHIX_SIGNING_KEY }}
 
-    - name: "Cache Yarn packages"
-      uses: actions/cache@v2
-      with:
-        path: node_modules
-        key: yarn-${{ hashFiles('yarn.lock') }}
-        restore-keys: |
-          yarn-
-
     - name: "Execute Ruby linter"
       run: nix-shell --run "bundle exec rubocop"
 
-    - name: "Check Yarn lockfile"
-      run: nix-shell --run "yarn check --frozen-lockfile"
-
     - name: "Execute Javascript linter"
-      run: nix-shell --run "npx prettier -c app/assets/javascripts/*"
+      run: nix-shell --run "npx prettier -c app/javascript/*"
 
     - name: "Check for security vulnerabilities"
       run: nix-shell --run "bundle exec brakeman"

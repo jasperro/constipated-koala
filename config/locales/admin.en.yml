@@ -15,9 +15,24 @@ en:
       save: Save activity?
       single: Activity
       title: Activities
+    cards:
+      activate: Activate
+      activate_confirm: Do you want to activate card %{uuid}?
+      activate_success: Card %{uuid} was activated
+      active: Active
+      cards: Cards
+      deactivate: Deactivate
+      deactivate_confirm: Do you want to deactivate card %{uuid}?
+      deactivate_success: Card %{uuid} was deactivated
+      deactivated: Deactivated
+      reactivate: Reactivate
+      reactivate_confirm: Do you want to reactivate card %{uuid}?
+      reactivate_success: Card %{uuid} was reactivated
+      to_be_activated: To be activated
     error:
       invalid_values: Oops, not everything was filled in correctly
     front:
+      activity_transactions_today: Latest activity transactions today
       checkout: Checkout transactions
       defaulters: Defaulters
       no_transactions: No transactions today
@@ -68,18 +83,20 @@ en:
       checkout: Checkout
       general: General
       group: Groups
-      ideal: iDeal
       impressions: Logs
       member: Members
       payments: Payments
       products: Products
       settings: Settings
+      transactions: Transactions
     payment:
       date: Date
       day_total: Daily total
       days: Days
       description: Description
+      export: Export transactions
       found: Transactions found
+      from: From
       ideal: iDeal transactions
       mails: Paymentmails
       member: Member
@@ -89,11 +106,15 @@ en:
       not_paid: Unpaid for activities
       overdue: Overdue payments (> 4 mails)
       paid: Paid
+      payconiq_display: Payconiq display total
+      payconiq_online: Payconiq display total
       per_page: transactions per page
       pinned: Pinned Checkout transactions
       price: Price
       show: Show
       state: State
+      till: Till
+      total: Total
       whatsapp:
         copy: Message copied to clipboard
         copy_error: Message could not be retrieved
@@ -115,3 +136,24 @@ en:
       show: Show
       signature: Signature
       user: User
+    transactions:
+      amount: Price
+      date: Date
+      description: Description
+      member: Member
+      payment_type:
+        ideal: Ideal
+        payconiq_display: Payconiq display
+        payconiq_online: Payconiq online
+        pin: Pinned
+        title: Payment Method
+      state:
+        failed: Failed
+        in_progress: In progress
+        successful: Successful
+        title: Status
+      transaction_type:
+        activity: Activities
+        checkout: Checkout
+        title: Transaction type
+      trxid: Transaction ID

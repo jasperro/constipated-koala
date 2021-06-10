@@ -11,9 +11,20 @@
 
   .card
     .card-header
-      %i.fa.fa-fw.fa-ticket-alt
-      =activity_textfield
+      .row
+        .col-sm
+          %i.fa.fa-fw.fa-ticket-alt
+          =activity_textfield
 
+        .col-sm.text-sm-right
+          %span
+            - if @activity.id
+              - if !@is_summarized.nil?
+                = link_to I18n.t('editing.revert')
+                = ','
+                = link_to I18n.t('editing.show_as_csv'), {summary_csv: 1}
+              - else
+                = link_to I18n.t('editing.summarize'), {summary_only: 1}
     .card-body
       .form-group
         .row
@@ -142,17 +153,22 @@
           .col-md-4
             = f.check_box :is_masters, checked: @activity.is_masters
             = f.label :is_masters
-        
         .row
           .col-lg-6
             = f.check_box :show_participants, checked: @activity.show_participants
             = f.label :show_participants
-
-      .form-group
         .row
           .col-lg-6
             = f.label :participant_limit
             = f.number_field :participant_limit, min: 0, data: {original: @activity.participant_limit}, id: "participant_limit"
+        %hr.my-4
+        .row
+          .col-md-4
+            = f.check_box :is_payable, checked: @activity.is_payable, data: {original: @activity.is_payable}
+            = f.label :is_payable
+          .col-lg-6
+            = f.label :VAT
+            = f.text_field :VAT, default: "21", data: {original: @activity.VAT}
 
       %button.btn.btn-success.wait{type: 'submit'}= I18n.t('editing.save')
       - if (@activity.id)

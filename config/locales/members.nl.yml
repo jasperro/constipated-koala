@@ -90,5 +90,12 @@ nl:
       files: Bestanden
       github: GitHub
       links: Externe links
+      payments: Betalingen
       pictures: Foto's
       vacancies: Vacatures
+    payments:
+      unpaid_activity:
+        checkall: Selecteer alle
+        no_unpaid: Er zijn geen activiteiten om te betalen!
+        pay: Betaal activiteiten
+        title: Onbetaalde activiteiten

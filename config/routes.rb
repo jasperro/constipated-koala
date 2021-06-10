@@ -19,7 +19,10 @@ Rails.application.routes.draw do
 
         get 'download', to: 'home#download'
 
-        post 'mongoose', to: 'home#add_funds'
+        get 'member/payments', to: 'payments#index', as: :member_payments
+
+        post 'mongoose', to: 'payments#add_funds'
+        post 'pay_activities', to: 'payments#pay_activities'
 
         # TODO: should this be moved to nginx or
         # @deprated these old routes
@@ -68,6 +71,7 @@ Rails.application.routes.draw do
         get   'payment_whatsapp'
         patch 'force_email_change'
         post  'email/:type', to: 'members#send_email', as: :mail
+        patch 'set_card_disabled/:uuid', to: 'members#set_card_disabled', as: 'set_card_disabled'
 
         collection do
           get 'search'
@@ -83,9 +87,10 @@ Rails.application.routes.draw do
       end
 
       scope 'payments' do
-        get 'payments', to: 'payments#index'
+        get '/', to: 'payments#index', as: "payments"
         get 'whatsapp/:member_id', to: 'payments#whatsapp_redirect', as: 'payment_whatsapp_redirect'
-        get 'transactions',       to: 'payments#update_transactions'
+        get 'transactions', to: 'payments#update_transactions'
+        get 'transactions_export', to: 'payments#export_payments'
       end
 
       resources :groups, only: [:index, :create, :show, :update, :destroy] do
@@ -100,7 +105,7 @@ Rails.application.routes.draw do
       end
 
       scope 'apps' do
-        get 'ideal',              to: 'apps#ideal'
+        get 'payments',           to: 'apps#transactions', as: 'paymenthandlers'
         get 'checkout',           to: 'apps#checkout'
 
         # json checkout urls
@@ -139,8 +144,10 @@ Rails.application.routes.draw do
         end
 
         scope 'hook' do
-          get 'mollie/:token',  to: 'webhook#mollie_redirect',    as: 'mollie_redirect'
+          get 'payment/:token', to: 'webhook#payment_redirect', as: 'payment_redirect'
+
           post 'mollie',        to: 'webhook#mollie_hook',        as: 'mollie_hook'
+          post 'payconiq',      to: 'webhook#payconiq_hook',      as: 'payconiq_hook'
 
           get 'mailchimp/:token', to: 'webhook#mailchimp_confirm_callback', as: 'mailchimp_confirm'
           post 'mailchimp/:token', to: 'webhook#mailchimp', as: 'mailchimp'

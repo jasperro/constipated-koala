@@ -266,6 +266,16 @@
     };
     version = "1.0.6";
   };
+  csv = {
+    groups = ["default"];
+    platforms = [];
+    source = {
+      remotes = ["https://rubygems.org"];
+      sha256 = "07mgyalwdxaxnff86j5p6n5szmhqz7nrlkb40826mzggrmva8v1m";
+      type = "gem";
+    };
+    version = "3.1.9";
+  };
   devise = {
     dependencies = ["bcrypt" "orm_adapter" "railties" "responders" "warden"];
     groups = ["default"];
@@ -624,14 +634,15 @@
     version = "3.2019.0904";
   };
   mimemagic = {
+    dependencies = ["nokogiri" "rake"];
     groups = ["default"];
     platforms = [];
     source = {
       remotes = ["https://rubygems.org"];
-      sha256 = "1qfqb9w76kmpb48frbzbyvjc0dfxh5qiw1kxdbv2y2kp6fxpa1kf";
+      sha256 = "1lkgabpaf3xm0h8w15p3pq1izx3k53xzp2pl128qiqpqqs8ywzi1";
       type = "gem";
     };
-    version = "0.3.5";
+    version = "0.3.9";
   };
   mini_magick = {
     groups = ["default"];
@@ -765,6 +776,16 @@
     };
     version = "2.7.1.2";
   };
+  pg = {
+    groups = ["default"];
+    platforms = [];
+    source = {
+      remotes = ["https://rubygems.org"];
+      sha256 = "13mfrysrdrh8cka1d96zm0lnfs59i5x2g6ps49r2kz5p3q81xrzj";
+      type = "gem";
+    };
+    version = "1.2.3";
+  };
   puma = {
     dependencies = ["nio4r"];
     groups = ["development"];
@@ -807,6 +828,17 @@
       type = "gem";
     };
     version = "2.0.8.1";
+  };
+  rack-proxy = {
+    dependencies = ["rack"];
+    groups = ["default"];
+    platforms = [];
+    source = {
+      remotes = ["https://rubygems.org"];
+      sha256 = "1v40xd3xhzhbdqfynd03gn88j1pga2zhrv58xs9fl4hzrlbp096s";
+      type = "gem";
+    };
+    version = "0.6.5";
   };
   rack-test = {
     dependencies = ["rack"];
@@ -1053,6 +1085,16 @@
     };
     version = "2.1.2";
   };
+  semantic_range = {
+    groups = ["default"];
+    platforms = [];
+    source = {
+      remotes = ["https://rubygems.org"];
+      sha256 = "150wq0y749rags4pm0g3zljd575vk17nwdzp0m0q04s62977rd24";
+      type = "gem";
+    };
+    version = "2.3.0";
+  };
   sentry-raven = {
     dependencies = ["faraday"];
     groups = ["production" "staging"];
@@ -1253,6 +1295,17 @@
       type = "gem";
     };
     version = "4.0.1";
+  };
+  webpacker = {
+    dependencies = ["activesupport" "rack-proxy" "railties" "semantic_range"];
+    groups = ["default"];
+    platforms = [];
+    source = {
+      remotes = ["https://rubygems.org"];
+      sha256 = "1xgyv5ppljw3yq71nbrw2hj6hq9y8qbdavjrn53nsccpy7801wdx";
+      type = "gem";
+    };
+    version = "5.2.1";
   };
   websocket-driver = {
     dependencies = ["websocket-extensions"];

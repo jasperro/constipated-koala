@@ -13,12 +13,12 @@ class Members::HomeController < ApplicationController
     @debt = Participant
             .where(paid: false, member: @member, reservist: false)
             .joins(:activity)
-            .where('activities.start_date < NOW()')
+            .where('activities.is_payable')
             .sum(:price) \
      + Participant # The plus makes it work for all activities where the member does NOT have a modified price.
             .where(paid: false, price: nil, member: @member, reservist: false)
             .joins(:activity)
-            .where('activities.start_date < NOW()')
+            .where('activities.is_payable')
             .sum('activities.price ')
 
     # @participants =
@@ -45,7 +45,8 @@ class Members::HomeController < ApplicationController
              .where(:participants => { member: @member, reservist: false })
              .order('start_date DESC')
 
-    @transactions = CheckoutTransaction.where(:checkout_balance => CheckoutBalance.find_by_member_id(current_user.credentials_id)).order(created_at: :desc).limit(10)
+    @transactions = CheckoutTransaction.where(:checkout_balance => CheckoutBalance.find_by_member_id(current_user.credentials_id)).order(created_at: :desc).limit(10) # ParticipantTransaction.all #
+    @payconiq_transaction_costs = Settings.payconiq_transaction_costs
     @transaction_costs = Settings.mongoose_ideal_costs
   end
 
@@ -89,42 +90,6 @@ class Members::HomeController < ApplicationController
     return
   end
 
-  def add_funds
-    member = Member.find(current_user.credentials_id)
-    balance = CheckoutBalance.find_or_create_by!(member: member)
-
-    if ideal_transaction_params[:amount].to_f <= Settings.mongoose_ideal_costs
-      flash[:notice] = I18n.t('failed', scope: 'activerecord.errors.models.ideal_transaction')
-      redirect_to members_home_path
-      return
-    end
-
-    if balance.nil?
-      flash[:notice] = I18n.t('failed', scope: 'activerecord.errors.models.ideal_transaction')
-      redirect_to members_home_path
-      return
-    end
-
-    ideal = IdealTransaction.new(
-      :description => I18n.t('activerecord.errors.models.ideal_transaction.attributes.checkout'),
-      :amount => (ideal_transaction_params[:amount].to_f + Settings.mongoose_ideal_costs),
-      :issuer => ideal_transaction_params[:bank],
-      :member => member,
-
-      :transaction_id => nil,
-      :transaction_type => 'CheckoutTransaction',
-
-      :redirect_uri => users_root_url
-    )
-
-    if ideal.save
-      redirect_to ideal.mollie_uri
-    else
-      flash[:notice] = I18n.t('failed', scope: 'activerecord.errors.models.ideal_transaction')
-      redirect_to members_home_path
-    end
-  end
-
   def download
     @member = Member.includes(:activities, :groups, :educations).find(current_user.credentials_id)
     @transactions = CheckoutTransaction.where(:checkout_balance => CheckoutBalance.find_by_member_id(current_user.credentials_id)).order(created_at: :desc)
@@ -149,11 +114,11 @@ class Members::HomeController < ApplicationController
                                    educations_attributes: [:id, :status])
   end
 
-  def user_post_params
-    params.require(:member).permit(:language)
+  def transaction_params
+    params.permit(:amount, :issuer, :payment_type)
   end
 
-  def ideal_transaction_params
-    params.require(:ideal_transaction).permit(:bank, :amount)
+  def user_post_params
+    params.require(:member).permit(:language)
   end
 end

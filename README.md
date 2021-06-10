@@ -39,13 +39,22 @@ $ docker-compose up
 You can run Koala itself by running this command:
 
 ```console
-$ rails server
-# This works as well:
+$ nix-shell
 $ rails s
 ```
 
 This will start a server that listens until you press Ctrl-C in the window
 where it's running.
+
+It might be neccesary to remove your existing node_modules folder, if it exists.
+Yarn might fail otherwise.
+
+When editing JavaScript, it might be usefull to run the webpack development server.
+This is started with:
+
+``` bash
+bundle exec bin/webpack-dev-server
+```
 
 ## Future
 Constipated koala is started as a tool for the board of Sticky in a very limited way; tracking members. Later on activities, groups, checkout ([POS](https://en.wikipedia.org/wiki/Point_of_sale)), and user login was added. I would like to see that in ten years it still is a tool for the board of Sticky. Developing started because the previous inhouse-build tool (written in php) started to break down. Rails proven to be a good candidate, a very solid foundation where the model-view-controller paradigm is enforced. At it's core it should remain to be an app for the board and new features should not be implemented at the expense of newly introduced bugs or not workable situations (changing stuff in the database directly would be bad!).

@@ -12,7 +12,7 @@
     %meta{content: "width=device-width, initial-scale=1, user-scalable=no", name: "viewport"}
 
     = stylesheet_link_tag 'members', media: 'all', 'data-turbolinks-track' => 'reload'
-    = javascript_include_tag 'members', 'data-turbolinks-track' => 'reload'
+    = javascript_pack_tag 'members', 'data-turbolinks-track': 'reload'
 
     %template#alert
       .toast{:class => "toast-{1}"}
@@ -50,6 +50,9 @@
             = link_to activities_path, :class => 'list-group-item list-group-item-action' do
               %span= I18n.t('navigation.activity')
               %i.fa.fa-ticket-alt{:class => ('active' if yield(:page) == 'activities')}
+            = link_to :member_payments, :class => 'list-group-item list-group-item-action' do
+              %span= I18n.t('members.navigation.payments')
+              %i.fa.fa-money-bill-wave{:class => ('active' if yield(:page) == 'member_payments')}
 
             = link_to :users_edit, :class => 'list-group-item list-group-item-action' do
               %span= I18n.t('members.navigation.edit_profile')

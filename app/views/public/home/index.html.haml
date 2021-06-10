@@ -1,12 +1,12 @@
 !!!
 %html
-  %headassociation_name
+  %head
     %title= "#{I18n.t(:sticky, scope: 'headers')} | #{I18n.t(:subscribe, scope: 'headers')}"
     %meta{content: 'IE=edge', 'http-equiv' => 'X-UA-Compatible'}
     %meta{content: 'width=device-width, initial-scale=1', name: 'viewport'}
 
     = stylesheet_link_tag 'intro', media: 'all', 'data-turbolinks-track' => 'reload'
-    = javascript_include_tag 'intro', 'data-turbolinks-track' => 'reload'
+    = javascript_pack_tag 'intro', 'data-turbolinks-track': 'reload'
 
     = csrf_meta_tags
   %body{ :data => { :spy => 'scroll', :target => '.navbar' } }

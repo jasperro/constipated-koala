@@ -1,20 +1,28 @@
 #:nodoc:
 class Api::WebhookController < ApiController
-  def mollie_redirect
-    transaction = IdealTransaction.find_by_token!(params[:token])
-    transaction.finalize! if transaction.update!
+  def payment_redirect
+    transaction = Payment.find_by_token!(params[:token])
+    transaction.finalize! if transaction.update_transaction!
 
-    flash[:notice] = transaction.message
+    flash[:notice] = transaction.message if transaction.successful? || transaction.in_progress?
+
     logger.debug transaction.message.inspect
 
-    flash[:notice] = I18n.t('failed', scope: 'activerecord.errors.models.ideal_transaction') if transaction.message.blank?
+    flash[:warning] = transaction.message if transaction.failed?
 
-    redirect_to transaction.redirect_uri
+    redirect_to member_payments_path
   end
 
   def mollie_hook
-    transaction = IdealTransaction.find_by_trxid!(params[:id])
-    transaction.finalize! if transaction.update!
+    transaction = Payment.find_by_trxid!(params[:id])
+    transaction.finalize! if transaction.update_transaction!
+
+    head :ok
+  end
+
+  def payconiq_hook
+    transaction = Payment.find_by_trxid!(params[:paymentId])
+    transaction.finalize! if transaction.update_transaction!
 
     head :ok
   end

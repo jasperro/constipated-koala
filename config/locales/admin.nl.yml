@@ -15,9 +15,24 @@ nl:
       save: Activiteit opslaan?
       single: Activiteit
       title: Activiteiten
+    cards:
+      activate: Activeer
+      activate_confirm: Kaart %{uuid} activeren?
+      activate_success: Kaart %{uuid} is geactiveerd
+      active: Actief
+      cards: Kaarten
+      deactivate: Deactiveer
+      deactivate_confirm: Kaart %{uuid} deactiveren?
+      deactivate_success: Kaart %{uuid} is gedeactiveerd
+      deactivated: Gedeactiveerd
+      reactivate: Reactiveer
+      reactivate_confirm: Kaart %{uuid} heractiveren?
+      reactivate_success: Kaart %{uuid} is heractiveerd
+      to_be_activated: Nog niet geactiveerd
     error:
       invalid_values: Oeps, niet alles is goed ingevuld
     front:
+      activity_transactions_today: Laatste activiteit transacties vandaag
       checkout: Checkout transacties
       defaulters: Wanbetalers
       no_transactions: Geen transacties vandaag
@@ -68,18 +83,20 @@ nl:
       checkout: Checkout
       general: Algemeen
       group: Groepen
-      ideal: iDeal
       impressions: Logs
       member: Leden
       payments: Betalingen
       products: Producten
       settings: Instellingen
+      transactions: Transacties
     payment:
       date: Datum
       day_total: Dagtotaal
       days: Dagen
       description: Omschrijving
+      export: Exporteer transacties
       found: Transacties gevonden
+      from: Van
       ideal: iDeal transacties
       mails: Betalingsmails
       member: Lid
@@ -89,11 +106,15 @@ nl:
       not_paid: Niet betaalde activiteiten
       overdue: Achterstallige betalingen (> 4 mails)
       paid: Betaald
+      payconiq_display: Payconiq display totaalbedrag
+      payconiq_online: Payconiq online totaal
       per_page: transacties per pagina
       pinned: Gepinde Checkout transacties
       price: Prijs
       show: Toon
       state: Status
+      till: Tot
+      total: Totaalbedrag
       whatsapp:
         copy: Bericht gekopieerd naar klembord
         copy_error: Bericht kon niet worden opgehaald
@@ -115,3 +136,24 @@ nl:
       show: Toon
       signature: Ondertekening
       user: Gebruiker
+    transactions:
+      amount: Prijs
+      date: Datum
+      description: Omschrijving
+      member: Lid
+      payment_type:
+        ideal: Ideal
+        payconiq_display: Payconiq display
+        payconiq_online: Payconiq online
+        pin: Gepind
+        title: Betaalmethode
+      state:
+        failed: Mislukt
+        in_progress: Bezig
+        successful: Geslaagd
+        title: Status
+      transaction_type:
+        activity: Activiteiten
+        checkout: Checkout
+        title: Transactie type
+      trxid: Transactie ID
