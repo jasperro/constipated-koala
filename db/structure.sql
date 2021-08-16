@@ -158,7 +158,9 @@ CREATE TABLE public.activities (
     description_en text,
     show_participants boolean DEFAULT true,
     is_payable boolean DEFAULT false,
-    "VAT" character varying DEFAULT '21'::character varying
+    "VAT" character varying DEFAULT '21'::character varying,
+    is_penultimates boolean,
+    is_seniors boolean
 );
 
 
@@ -1663,6 +1665,7 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20210624155358'),
 ('20210801152003'),
 ('20210801152004'),
-('20210808184948');
+('20210808184948'),
+('20210816185700');
 
 
