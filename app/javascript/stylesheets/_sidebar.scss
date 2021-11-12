@@ -1,0 +1,39 @@
+#sidebar-container {
+  display: flex;
+}
+
+#sidebar-wrapper {
+    @apply bg-board h-full md:ml-0 w-48;
+}
+
+#sidebar-wrapper .list-group {
+  width: 100%;
+}
+
+#sidebar-wrapper a {
+    @apply bg-red-300 rounded-md flex no-underline font-bold h-4 p-5 justify-between items-center my-1 mx-2;
+}
+
+#sidebar-wrapper a > i {
+    @apply inline-flex text-center h-4 w-4
+}
+
+#sidebar-wrapper a > i.active {
+    @apply text-white;
+}
+
+.nav-min #sidebar-container {
+    @apply w-full;
+}
+
+.nav-min #sidebar-wrapper {
+    @apply ml-0;
+}
+
+.nav-min .view-container {
+  display: none;
+}
+
+.view-container {
+  @apply overflow-y-auto w-full;
+}
