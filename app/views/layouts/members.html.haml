@@ -25,7 +25,7 @@
           {0}
     = csrf_meta_tags
   %body#app.h-screen.flex.w-full.h-screen.flex-col.overflow-hidden
-    %header.flex.header.bg-board.items-center.justify-between.p-4
+    %header.flex.header.bg-board.items-center.justify-between.p-4.text-white
       = link_to '#', :class => 'toggle-min d-block d-md-none menu-button' do
         %i.fa.fa-bars
 
@@ -44,20 +44,20 @@
       %aside#sidebar-container{role: 'navigation'}
         #sidebar-wrapper
           .list-group.list-group-flush{'data-collapse-nav' => '', 'data-slim-scroll' => '', 'data-highlight-active' => '' }
-            = link_to :root, :class => 'list-group-item list-group-item-action' do
+            = link_to :root, :class => 'list-group-item list-group-item-action' + (' active' if yield(:page) == 'home').to_s do
               %span= I18n.t('navigation.home')
-              %i.fa.fa-desktop{:class => ('active' if yield(:page) == 'home')}
+              %i.fa.fa-desktop
 
-            = link_to activities_path, :class => 'list-group-item list-group-item-action' do
+            = link_to activities_path, :class => 'list-group-item list-group-item-action' + (' active' if yield(:page) == 'activities').to_s do
               %span= I18n.t('navigation.activity')
-              %i.fa.fa-ticket-alt{:class => ('active' if yield(:page) == 'activities')}
-            = link_to :member_payments, :class => 'list-group-item list-group-item-action' do
+              %i.fa.fa-ticket-alt
+            = link_to :member_payments, :class => 'list-group-item list-group-item-action' + (' active' if yield(:page) == 'member_payments').to_s do
               %span= I18n.t('members.navigation.payments')
-              %i.fa.fa-money-bill-wave{:class => ('active' if yield(:page) == 'member_payments')}
+              %i.fa.fa-money-bill-wave
 
-            = link_to :users_edit, :class => 'list-group-item list-group-item-action' do
+            = link_to :users_edit, :class => 'list-group-item list-group-item-action' + (' active' if yield(:page) == 'edit').to_s do
               %span= I18n.t('members.navigation.edit_profile')
-              %i.fa.fa-user{:class => ('active' if yield(:page) == 'edit')}
+              %i.fa.fa-user
             = link_to '', :class => 'list-group-item list-group-item-action',
               'data-toggle' => 'collapse', 'href' => '#sub-apps' do
               %span= I18n.t('members.navigation.links')

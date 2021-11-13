@@ -3,7 +3,7 @@
 }
 
 #sidebar-wrapper {
-    @apply bg-board h-full md:ml-0 w-48;
+    @apply bg-gray-100 h-full md:ml-0 w-48 text-white;
 }
 
 #sidebar-wrapper .list-group {
@@ -18,8 +18,8 @@
     @apply inline-flex text-center h-4 w-4
 }
 
-#sidebar-wrapper a > i.active {
-    @apply text-white;
+#sidebar-wrapper a.active {
+    @apply bg-board;
 }
 
 .nav-min #sidebar-container {
