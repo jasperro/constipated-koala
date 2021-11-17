@@ -58,10 +58,8 @@
             = link_to :users_edit, :class => 'list-group-item list-group-item-action' + (' active' if yield(:page) == 'edit').to_s do
               %span= I18n.t('members.navigation.edit_profile')
               %i.fa.fa-user
-            = link_to '', :class => 'list-group-item list-group-item-action',
-              'data-toggle' => 'collapse', 'href' => '#sub-apps' do
-              %span= I18n.t('members.navigation.links')
-              %i.fa.fa-caret-down
+
+            %span.text-sm.text-gray-500= I18n.t('members.navigation.links')
             .collapse.list-group#sub-apps
               = link_to "https://fotos.svsticky.nl/", :class => 'list-group-item list-group-item-action' do
                 %span= I18n.t('members.navigation.pictures')

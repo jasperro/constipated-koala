@@ -3,7 +3,7 @@
 }
 
 #sidebar-wrapper {
-    @apply bg-gray-100 h-full md:ml-0 w-48 text-white;
+    @apply bg-gray-100 h-full px-5 py-5 w-[14rem] text-gray-800;
 }
 
 #sidebar-wrapper .list-group {
@@ -11,7 +11,7 @@
 }
 
 #sidebar-wrapper a {
-    @apply bg-red-300 rounded-md flex no-underline font-bold h-4 p-5 justify-between items-center my-1 mx-2;
+    @apply bg-gray-50 shadow rounded-md flex no-underline font-bold h-4 p-5 justify-between items-center my-2;
 }
 
 #sidebar-wrapper a > i {
@@ -19,7 +19,7 @@
 }
 
 #sidebar-wrapper a.active {
-    @apply bg-board;
+    @apply bg-gray-800 text-white;
 }
 
 .nav-min #sidebar-container {

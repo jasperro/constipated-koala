@@ -1,20 +1,22 @@
 - content_for(:page, 'home')
 
 .grid.grid-rows-auto.gap-4.p-4.grid-cols-1.lg:grid-cols-2.xl:grid-cols-3
-  .flex.space-x-2
+  .flex.space-x-4
     - unless @balance.blank?
       .px-4.py-2.flex.flex-col.flex-1.bg-green-400.shadow.rounded-md.text-white
-        %i.fa.fa-shopping-cart.fa-4x
-        %p.text-base.font-bold.leading-normal
-          = I18n.t('activerecord.models.checkout_balance')
-        %p.text-5xl.font-bold.leading-10
+        .flex.items-center
+          %i.fa.fa-shopping-cart.fa-lg
+          %p.text-base.font-bold.leading-normal.ml-4
+            = I18n.t('activerecord.models.checkout_balance')
+        %p.text-5xl.font-bold.leading-10.mt-4
           = number_to_currency( @balance.balance, :unit => '€' )
 
       .px-4.py-2.flex.flex-col.flex-1.bg-yellow-400.shadow.rounded-md.text-white
-        %i.fa.fa-money-bill-wave.fa-4x
-        %p.text-base.font-bold.leading-normal
-          = I18n.t('members.home.index.outstanding_payments')
-        %p.text-5xl.font-bold.leading-10
+        .flex.items-center
+          %i.fa.fa-money-bill-wave.fa-lg
+          %p.text-base.font-bold.leading-normal.ml-4
+            = I18n.t('members.home.index.outstanding_payments')
+        %p.text-5xl.font-bold.leading-10.mt-4
           = number_to_currency( @debt, :unit => '€' )
 
     - if @member.groups.any?
