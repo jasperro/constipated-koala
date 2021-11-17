@@ -1,0 +1,22 @@
+#sidebar-container {
+  @apply flex flex-col justify-between bg-gray-100 sm-max:absolute sm-max:-translate-x-full left-0 h-full w-full transition-transform px-5 pb-4 pt-20 max-w-[14rem] text-gray-800;
+  .nav-min & {
+    @apply sm-max:w-full sm-max:max-w-full sm-max:translate-x-0;
+  }
+}
+
+#sidebar-container a {
+  @apply bg-gray-50 shadow rounded-md flex no-underline font-medium h-4 p-5 items-center my-2 space-x-2;
+}
+
+#sidebar-container a > i {
+  @apply inline-flex text-center h-4 w-4
+}
+
+#sidebar-container a.active {
+  @apply bg-gray-800 text-white;
+}
+
+.view-container {
+  @apply overflow-y-auto w-full bg-gray-50 mt-16;
+}
