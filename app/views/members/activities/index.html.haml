@@ -15,7 +15,7 @@
 
 #activity-container{:data => {:view => 'index'}}
   - @activities.each do |activity|
-    .flexwrap
+    .flex
       = render 'members/activities/partials/view', activity: activity, view: 'index'
 
 = render 'layouts/partials/poster_modal', view: 'index'

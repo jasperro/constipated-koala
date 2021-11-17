@@ -1,5 +1,5 @@
 .btn {
-  @apply bg-blue-500 text-white p-2 rounded w-full cursor-pointer hover:bg-blue-600 transition-colors;
+  @apply bg-blue-500 text-white p-2 rounded w-full cursor-pointer shadow hover:bg-blue-600 hover:shadow-md transition-colors;
 }
 
 .alert-danger {
@@ -34,10 +34,6 @@ footer > div {
   margin: 0 auto;
 }
 
-/* This is a hack because browsers do not follow the CSS standard with respect to specifity of display rules
-see: https://stackoverflow.com/questions/68206422/tailwinds-darkhidden-darkblock-wont-override-its-own-hidden-selector*/
-@media (prefers-color-scheme: dark) {
-  .dark\:block {
-    display: block;
-  }
+.view-container {
+  @apply bg-gray-50
 }

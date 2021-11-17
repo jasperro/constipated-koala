@@ -42,7 +42,7 @@
                             I18n.t(position, scope: 'activerecord.attributes.group.positions', default: position.capitalize) |
 
 
-  .flex.flex-col.py-2.bg-gray-100.shadow.rounded-md.px-4.row-span-2
+  .card.row-span-2
     .card-header
       %span
         %i.fa.fa-fw.fa-fw.fa-ticket-alt
@@ -73,7 +73,7 @@
                   %span.label.label-success= I18n.t('activerecord.attributes.participant.paid.true')
                 - else
                   %span.label.label-warning= I18n.t('activerecord.attributes.participant.paid.false')
-  .flex.flex-col.py-2.bg-gray-100.shadow.rounded-md.px-4
+  .card
     .card-header
       %i.fa.fa-fw.fa-fw.fa-shopping-cart
       %span= I18n.t("activerecord.models.checkout_transactions")
