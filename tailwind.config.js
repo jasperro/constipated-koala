@@ -11,13 +11,16 @@ module.exports = {
       },
     },
     screens: {
-      // these breakpoints are copied from Yeti
-      // the xs breakpoint doesn't make much sense
-      //xs: '0',
-      sm: "576px",
-      md: "768px",
-      lg: "992px",
-      xl: "1200px",
+      'sm': '640px',
+      'md': '768px',
+      'lg': '1024px',
+      'xl': '1280px',
+      '2xl': '1536px',
+      '2xl-max': { 'max': '1535px' },
+      'xl-max': { 'max': '1279px' },
+      'lg-max': { 'max': '1023px' },
+      'md-max': { 'max': '767px' },
+      'sm-max': { 'max': '639px' },
     },
   },
   variants: {
