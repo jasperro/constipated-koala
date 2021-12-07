@@ -1,0 +1,15 @@
+.table {
+    @apply table-auto;
+}
+
+.table-striped {
+    tr {
+        @apply border-gray-100;
+        td {
+            @apply px-2;
+        }
+    }
+    tr:nth-child(n+2) {
+        @apply border-t-2;
+    }
+}

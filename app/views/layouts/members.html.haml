@@ -24,8 +24,8 @@
         .toast-message
           {0}
     = csrf_meta_tags
-  %body#app.w-full.h-screen.overflow-hidden
-    %header.flex.absolute.w-full.header.bg-board.items-center.px-4.text-white.h-16.z-50.shadow
+  %body#app
+    %header
       = link_to '#', :class => 'toggle-min d-block d-md-none menu-button' do
         %i.fa.fa-bars
 
@@ -34,7 +34,7 @@
 
     %div.flex.h-full
       %aside#sidebar-container{role: 'navigation'}
-        #sidebar_upper
+        #sidebar-upper
           = link_to :root, :class => 'list-group-item list-group-item-action' + (' active' if yield(:page) == 'home').to_s do
             %i.fa.fa-desktop
             %span= I18n.t('navigation.home')
@@ -67,7 +67,7 @@
           = link_to "https://svsticky.nl/discord/", :class => 'list-group-item list-group-item-action' do
             %i.fab.fa-discord
             %span= I18n.t('members.navigation.discord')
-        #sidebar_lower
+        #sidebar-lower
           %span.font-bold
             %i.fa.fa-user
             =current_user.email

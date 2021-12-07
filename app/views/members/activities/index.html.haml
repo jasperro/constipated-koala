@@ -2,11 +2,10 @@
 - content_for(:title, 'Activiteiten')
 
 - if @activities.any?
-  .btn-group{role: "group", 'aria-label': "..."}
-    = link_to 'https://calendar.google.com/calendar/embed?src=stickyutrecht.nl_thvhicj5ijouaacp1elsv1hceo%40group.calendar.google.com&ctz=Europe%2FAmsterdam', class: 'btn btn-info', target: '_blank' do
-      = I18n.t 'members.activities.index.activities_calendar'
-    = link_to '', class: 'btn btn-secondary', id: 'copy-btn', onclick: 'Copy_ICS()' do
-      = I18n.t 'members.activities.index.copy_ICS'
+  = link_to 'https://calendar.google.com/calendar/embed?src=stickyutrecht.nl_thvhicj5ijouaacp1elsv1hceo%40group.calendar.google.com&ctz=Europe%2FAmsterdam', class: 'btn btn-info', target: '_blank' do
+    = I18n.t 'members.activities.index.activities_calendar'
+  = link_to '', class: 'btn btn-secondary', id: 'copy-btn', onclick: 'Copy_ICS()' do
+    = I18n.t 'members.activities.index.copy_ICS'
 - else
   .alert.alert-warning= I18n.t('members.activities.index.no_activities')
 
@@ -14,7 +13,6 @@
 
 #activity-container{:data => {:view => 'index'}}
   - @activities.each do |activity|
-    .flex
-      = render 'members/activities/partials/view', activity: activity, view: 'index'
+    = render 'members/activities/partials/view', activity: activity, view: 'index'
 
 = render 'layouts/partials/poster_modal', view: 'index'

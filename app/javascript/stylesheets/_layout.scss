@@ -20,3 +20,14 @@
 .view-container {
   @apply overflow-y-auto w-full bg-gray-50 mt-16;
 }
+
+#app {
+  @apply w-full h-screen overflow-hidden;
+  & header {
+    @apply flex absolute w-full bg-board items-center px-4 text-white h-16 z-50 shadow;
+  }
+}
+
+#activity-container {
+  @apply grid grid-cols-5 gap-4;
+}

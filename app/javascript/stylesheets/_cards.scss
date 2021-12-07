@@ -7,13 +7,11 @@
 }
 
 .card-title {
-  text-transform: uppercase;
-  font-weight: bold;
-  margin-bottom: 0;
+  @apply text-lg font-medium;
 }
 
 .card-header {
-  @apply text-lg;
+  @apply text-lg font-medium mb-4;
 }
 
 .card-footer .btn-group {

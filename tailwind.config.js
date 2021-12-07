@@ -7,7 +7,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        board: "#fe7215",
+        board: "rgb(128, 8, 22)",
       },
     },
     screens: {

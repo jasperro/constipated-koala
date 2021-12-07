@@ -25,7 +25,7 @@
           .card-header
             %i.fa.fa-fw.fa-users
             = I18n.t('activerecord.models.group')
-          %table.table.card-body
+          %table.table.table-striped
             %tbody
               - @member.groups.each do |group|
                 %tr
@@ -77,7 +77,7 @@
     .card-header
       %i.fa.fa-fw.fa-fw.fa-shopping-cart
       %span= I18n.t("activerecord.models.checkout_transactions")
-    %table.table.card-body
+    %table.table.table-striped
       %tbody
         - @transactions.each do |transaction|
           %tr
