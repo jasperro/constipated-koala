@@ -100,17 +100,17 @@
       - if activity.open?
         - if @member.confirmed_activities.ids.include? activity.id
           - button_text = I18n.t("members.activities.actions.unenroll")
-          - button_class = 'btn-danger col-12 col-sm-6'
+          - button_class = 'bg-red-500 hover:bg-red-600 col-12 col-sm-6'
           - if !activity.unenroll_date.nil? && activity.unenroll_date < Date.today
             - button_class += ' disabled'
         - elsif @member.reservist_activities.ids.include? activity.id
           - button_text = I18n.t("members.activities.actions.reservist_unenroll")
-          - button_class = 'btn-warning col-12 col-sm-6'
+          - button_class = 'bg-orange-500 hover:bg-orange-600 col-12 col-sm-6'
         - elsif activity.participant_limit != nil && activity.participant_limit <= activity.participants.count
           - button_text = I18n.t("members.activities.actions.reservist_enroll")
-          - button_class = 'btn-warning col-12 col-sm-6'
+          - button_class = 'bg-orange-500 hover:bg-orange-600 col-12 col-sm-6'
         - else
           - button_text = I18n.t("members.activities.actions.enroll")
-          - button_class = 'btn-success col-12 col-sm-6'
+          - button_class = 'bg-green-500 hover:bg-green-600 col-12 col-sm-6'
         %button.btn.enrollment{ :class => button_class}
           = button_text
