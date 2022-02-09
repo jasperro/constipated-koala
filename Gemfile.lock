@@ -296,6 +296,11 @@ GEM
     unicorn (5.5.1)
       kgio (~> 2.6)
       raindrops (~> 0.7)
+    view_component (2.48.0)
+      activesupport (>= 5.0.0, < 8.0)
+      method_source (~> 1.0)
+    view_component_storybook (0.10.1)
+      view_component (>= 2.36)
     warden (1.2.8)
       rack (>= 2.0.6)
     web-console (4.0.1)
@@ -352,6 +357,8 @@ DEPENDENCIES
   telephone_number
   uglifier
   unicorn
+  view_component
+  view_component_storybook
   web-console
   webpacker (= 6.0.0.rc.6)
 

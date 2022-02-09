@@ -30,6 +30,8 @@ vendor/cache/
 node_modules/
 .sass-cache/
 
+**/*.stories.json
+
 .i15r-cache
 .i15r-output
 signing-key.pem

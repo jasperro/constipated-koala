@@ -1271,6 +1271,28 @@
     };
     version = "5.5.1";
   };
+  view_component = {
+    dependencies = ["activesupport" "method_source"];
+    groups = ["default"];
+    platforms = [];
+    source = {
+      remotes = ["https://rubygems.org"];
+      sha256 = "02417r6lb17dwhk9ggyk03zhnq9m1badacyzmh3sg3s9bi6w41mc";
+      type = "gem";
+    };
+    version = "2.48.0";
+  };
+  view_component_storybook = {
+    dependencies = ["view_component"];
+    groups = ["default"];
+    platforms = [];
+    source = {
+      remotes = ["https://rubygems.org"];
+      sha256 = "0yslfpcw58mqqaig83b2h98mf04i19ck37m270d8naxr69iv9h0n";
+      type = "gem";
+    };
+    version = "0.10.1";
+  };
   warden = {
     dependencies = ["rack"];
     groups = ["default"];

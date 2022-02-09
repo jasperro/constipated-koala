@@ -8,6 +8,11 @@ gem 'rails', '~> 6.0'
 gem 'haml'
 gem 'rabl'
 
+# view components (with storybook support)
+gem "view_component", require: "view_component/engine"
+gem "view_component_storybook", require: "view_component/storybook/engine"
+
+
 # assets and stuff
 gem 'coffee-rails'
 gem 'font_awesome5_rails'
