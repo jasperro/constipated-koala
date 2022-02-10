@@ -22,6 +22,10 @@ gem 'devise'
 gem 'doorkeeper'
 gem 'doorkeeper-openid_connect'
 
+# view components with preview
+gem "view_component"
+gem "lookbook"
+
 gem 'impressionist', github: 'charlotte-ruby/impressionist'
 
 # rests calls for mailgun
@@ -76,5 +80,5 @@ group :development, :test do
   gem 'spring'
 
   # i18n checks
-  gem 'i18n-tasks', '~> 0.9.31'
+  gem 'i18n-tasks', '~> 0.9.37'
 end
