@@ -69,6 +69,8 @@ module ConstipatedKoala
     # Store files locally.
     config.active_storage.service = :local
 
+    config.view_component.default_preview_layout = "component_preview"
+
     # Generate translations.json
     config.middleware.use I18n::JS::Middleware
   end

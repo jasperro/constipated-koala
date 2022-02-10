@@ -28,6 +28,9 @@ Rails.application.routes.draw do
           resource :participants, only: [:create, :update, :destroy]
         end
       end
+      if Rails.env.development?
+        mount Lookbook::Engine, at: "/lookbook"
+      end
     end
 
     root 'admin/home#index'
