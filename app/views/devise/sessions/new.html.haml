@@ -36,7 +36,7 @@
       .form-group
         .center
           %span.dark:text-white
-            = f.check_box :remember_me
+            = f.check_box :remember_me, :class => "form-check-input"
             = f.label(:remember_me, I18n.t('devise.sessions.new.remember_me'), :class => 'remember_label')
 
       .form-group

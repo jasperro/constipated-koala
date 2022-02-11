@@ -61,13 +61,13 @@
           %dt= I18n.t :yearly, scope: @scope
           %dd
             %label.ui-checkbox
-              = check_box_tag 'yearly'
+              = check_box_tag 'yearly', nil, nil {:class => "form-check-input"}
               %span= I18n.t :yearly_consent, scope: @scope
 
           %dt= raw I18n.t :indefinite, scope: @scope, url: link_to('koala', users_edit_url)
           %dd
             %label.ui-checkbox
-              = check_box_tag 'indefinite'
+              = check_box_tag 'indefinite', nil, nil {:class => "form-check-input"}
               %span= I18n.t :indefinite_consent, scope: @scope
 
     %hr

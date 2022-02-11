@@ -21,7 +21,7 @@
               %thead
                 %tr
                   %th
-                    = check_box_tag 'check_all_activities'
+                    = check_box_tag 'check_all_activities', nil, nil, {:class => "form-check-input"}
                   %th.col-6
                     = I18n.t("members.payments.unpaid_activity.header.name")
                   %th.col-6.d-none.d-xl-table-cell
@@ -69,7 +69,7 @@
                 - @participants.each do |activity|
                   %tr
                     %td
-                      = check_box_tag "activity_ids[]", activity.id, true, {:class => "activity_checkbox"}
+                      = check_box_tag "activity_ids[]", activity.id, true, {:class => "activity_checkbox form-check-input"}
                     - if !activity.ended?
                       %td= link_to activity.name, activity_path(activity)
                     - else

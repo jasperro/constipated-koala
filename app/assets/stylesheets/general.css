@@ -1,8 +1,3 @@
 /*
-    This file is used to override values in yeti for all pages
+    This file is used to override values in bootswatch/bootstrap theme for all pages
 */
-
-label {
-    margin-bottom: 0;
-    margin-top: 0.5rem;
-}
