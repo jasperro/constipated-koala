@@ -25,9 +25,8 @@
             %li
               %a{ :data => { :name => I18n.t("layouts.partials.search.anybody") }}= I18n.t("layouts.partials.search.anybody")
 
-          .input-group-append
-            %button.btn.btn-primary{ type: 'submit' }
-              %i.fa.fa-search
+          %button.btn.btn-primary{ type: 'submit' }
+            %i.fa.fa-search
 
 - if flash['notice'].present?
   .col-md-12

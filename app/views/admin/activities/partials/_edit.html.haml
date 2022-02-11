@@ -58,21 +58,19 @@
             .input-group
               %input#output.form-control{ :readonly => '', :value => ("#{@activity.poster.filename}" if @activity.poster.attached?) }
 
-              .input-group-append
-                %div.btn.btn-primary.file-input-wrapper
-                  %span
-                    = I18n.t('files.upload')
-                  = f.file_field :poster, { 'data-ui-file-upload' => '' }
-              .input-group-append
-                %button.btn.btn-primary.dropdown-toggle{ 'data-toggle' => 'dropdown', :type => 'button', :class => ( 'disabled' unless @activity.poster.attached? ) }
-                  %span.caret
-                %ul.dropdown-menu
-                  %li
-                    - if @activity.poster.attached?
-                      = link_to 'Download', @activity.poster, :download => '', :class => 'dropdown-item'
-                  %li.divider
-                  %li
-                    = link_to I18n.t('files.delete'), '#', :class => 'dropdown-item remove'
+              %div.btn.btn-primary.file-input-wrapper
+                %span
+                  = I18n.t('files.upload')
+                = f.file_field :poster, { 'data-ui-file-upload' => '' }
+              %button.btn.btn-primary.dropdown-toggle{ 'data-toggle' => 'dropdown', :type => 'button', :class => ( 'disabled' unless @activity.poster.attached? ) }
+                %span.caret
+              %ul.dropdown-menu
+                %li
+                  - if @activity.poster.attached?
+                    = link_to 'Download', @activity.poster, :download => '', :class => 'dropdown-item'
+                %li.divider
+                %li
+                  = link_to I18n.t('files.delete'), '#', :class => 'dropdown-item remove'
 
             = f.hidden_field :_destroy, :class => 'remove_poster'
 
