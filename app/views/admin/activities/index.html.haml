@@ -23,11 +23,11 @@
                   - if !activity.group.nil?
                     %td
                       - if activity.group.board?
-                        %span.badge.badge-primary= activity.group.name.upcase
+                        %span.badge.bg-primary= activity.group.name.upcase
                       - elsif activity.group.committee?
-                        %span.badge.badge-success= activity.group.name.upcase
+                        %span.badge.bg-success= activity.group.name.upcase
                       - else
-                        %span.label.badge-warning= activity.group.name.upcase
+                        %span.label.bg-warning= activity.group.name.upcase
                   - else
                     %td
                       %span
@@ -38,7 +38,7 @@
 
                   - if activity.ended?
                     %td.d-none.d-md-block
-                      %span.badge.badge-info
+                      %span.badge.bg-info
                         = I18n.t('admin.activities.ended')
                   -else
                     %td.d-none.d-md-block
