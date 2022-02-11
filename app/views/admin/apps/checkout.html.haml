@@ -97,7 +97,7 @@
                     = I18n.t('checkout.card.none')
 
         .card.card-box
-          .row.no-gutters
+          .row.g-0
             .col.card-body
               %p.size-h2.no-margin
                 = number_to_currency @credit, :unit => '€'
@@ -107,7 +107,7 @@
               %i.fa.fa-credit-card.fa-3x
 
         = link_to checkout_products_path, { :class => 'card card-box' } do
-          .row.no-gutters
+          .row.g-0
             .col.bg-primary.card-body
               %i.fa.fa-shopping-cart.fa-3x
             .col.card-body
